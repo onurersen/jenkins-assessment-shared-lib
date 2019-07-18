@@ -1,4 +1,4 @@
-package net.onurersen.jenkins.workflow
+package com.onurersen.jenkins
 import com.cloudbees.groovy.cps.NonCPS
 
 class BuildConfig implements Serializable {
