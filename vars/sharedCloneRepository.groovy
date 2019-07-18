@@ -1,17 +1,7 @@
-def call(body) {
-    def config = [:]
-    body.resolveStrategy = Closure.DELEGATE_FIRST
-    body.delegate = config
-    body()
+import net.onurersen.jenkins.workflow.BuildConfig
 
-    echo config.branch
-    echo config.credentials
-    echo config.url
-    //echo "Param1 is: ${env.param1}"
-    //echo "Param2 is: ${env.param2}"
+def call(def body = [:]) {
+    // evaluate the body block, and collect configuration into the object
+    config = BuildConfig.resolve(body)
     git branch: config.branch, credentialsId: config.credentials, url: config.url
-    /*if (env.param1 == 'One default') {
-        echo "Param1 is default"
-    }*/
-    return this
 }
