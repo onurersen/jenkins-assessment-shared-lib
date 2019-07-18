@@ -1,4 +1,4 @@
-import net.onurersen.jenkins.workflow.BuildConfig
+import com.onurersen.jenkins.BuildConfig
 
 def call(def body = [:]) {
     // evaluate the body block, and collect configuration into the object
